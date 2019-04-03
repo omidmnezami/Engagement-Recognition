@@ -38,7 +38,7 @@ We train the model on our new engagement recognition (ER) dataset with 4627 enga
 3. [Transfer Model Source Code](/code/VGG_model.py)
 
 ### Train
-1. Dowload pretrained model
+1. Dowload pretrained model:
    /model/TF_start*
 2. Run the model's script:
     python VGG_model.py train
