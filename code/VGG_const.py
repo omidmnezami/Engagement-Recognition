@@ -10,7 +10,7 @@
 
 SIZE_FACE = 48
 EMOTIONS = ['eng','dis']
-SAVE_DIRECTORY = '../data/'
+SAVE_DIRECTORY = '../model/'
 SAVE_MODEL_FILENAME = 'VGG_model'
 SAVE_MODEL_FILENAME_TF = 'VGG_model'
 SAVE_DATASET_IMAGES_FILENAME = 'X_train.npy'
