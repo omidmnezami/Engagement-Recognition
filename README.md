@@ -28,9 +28,9 @@ if you use our code or model, please cite our paper:
 We train the model on our new engagement recognition (ER) dataset with 4627 engaged and disengaged samples. We split the ER dataset into training (3224), validation (715), and testing (688) sets, which are subject-independent (the samples in these three sets are from different subjects). We will release our data to facilitate research on engagement recognition from visual data.
 
 ### Requiremens
-Python 2.7.12
-Numpy 1.15.2
-Tensorflow 1.8.0
+1. Python 2.7.12
+2. Numpy 1.15.2
+3. Tensorflow 1.8.0
 
 ### Contents
 1. [CNN Model Source Code](/code/CNN_model.py)
@@ -53,3 +53,6 @@ Tensorflow 1.8.0
 |                   | Accuracy     | F1 | AUC    |
 |-------------------|:-------------------:|:------------------------:|:---------------------:|
 |Transfer | 72.38%  | 73.90% | 73.74%  |
+
+The [CNN Model](/code/CNN_model.py) is inspired from [Emotion recognition with CNN](
+https://github.com/isseu/emotion-recognition-neural-networks)
