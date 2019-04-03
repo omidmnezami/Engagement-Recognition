@@ -3,7 +3,7 @@
 TensorFlow implementation of [Engagement Recognition using Deep Learning and Facial Expression](https://arxiv.org/abs/1808.02324) proposing a deep learning model to recognize engagement from human faces.
 
 <p align="center">
-<img src="images/sample_eng.jpg" width=300 high=500>
+<img src="images/sample_eng.jpg" width=500 high=700>
 </p>
 
 
@@ -55,4 +55,4 @@ We train the model on our new engagement recognition (ER) dataset with 4627 enga
 |Transfer | 72.38%  | 73.90% | 73.74%  |
 
 The [CNN Model](/code/CNN_model.py) is inspired from [Emotion recognition with CNN](
-https://github.com/isseu/emotion-recognition-neural-networks)
+https://github.com/isseu/emotion-recognition-neural-networks).
