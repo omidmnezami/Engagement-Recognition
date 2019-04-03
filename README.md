@@ -2,8 +2,9 @@
 
 TensorFlow implementation of [Engagement Recognition using Deep Learning and Facial Expression](https://arxiv.org/abs/1808.02324) proposing a deep learning model to recognize engagement from human faces.
 
-<img align="center" width="100" height="100" src="images/sample_eng.jpg">
-
+<p align="center">
+<img src="images/sample_eng.jpg">
+</p>
 
 ## References
 Please cite our paper if you use our code or model:
