@@ -1,9 +1,8 @@
 # Engagement Recognition
 
-TensorFlow implementation of [Engagement Recognition using Deep Learning and Facial Expression](https://arxiv.org/abs/1808.02324) proposing a deep learning model to recognize engagement from human faces. 
+TensorFlow implementation of [Engagement Recognition using Deep Learning and Facial Expression](https://arxiv.org/abs/1808.02324) proposing a deep learning model to recognize engagement from human faces.
 
-
-![sample_eng](images/sample_eng.jpg?raw=true "Engaged (left) and disengaged (right) samples collected in our studies. We blurred the children's eyes for ethical issues, even though we have their parents consent at the time.")
+<img align="center" width="100" height="100" src="images/sample_eng.jpg">
 
 
 ## References
