@@ -33,13 +33,18 @@ Tensorflow 1.8.0
 
 
 ### Test
-1. Download [trained model](/model/TF_final.data-00000-of-00001), and put it under `model\`.
+1. Download [trained model](/model/TF_final.data-00000-of-00001).
 2. Run the model's script:
     python VGG_model.py test
     
     
 ### Training
-1. Dowload [pretrained model](/model/TF_start.data-00000-of-00001), and put it under 'model\'
+1. Dowload [pretrained model](/model/TF_start.data-00000-of-00001).
 2. Run the model's script:
     python VGG_model.py train
     
+### Results
+    
+|                   | Accuracy     | F1 | AUC    |
+|-------------------|:-------------------:|:------------------------:|:---------------------:|
+|Transfer | 72.38%  | 73.90% | 73.74%  |
