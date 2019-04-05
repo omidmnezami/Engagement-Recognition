@@ -1,14 +1,14 @@
 # Engagement Recognition
 
-TensorFlow implementation of [Engagement Recognition using Deep Learning and Facial Expression](https://arxiv.org/abs/1808.02324) proposing a deep learning model to recognize engagement from human faces.
+TensorFlow implementation of [Automatic Recognition of Student Engagement using Deep Learning and Facial Expression](https://arxiv.org/abs/1808.02324) proposing a deep learning model to recognize engagement from images.
 
 <p align="center">
 <img src="images/sample_eng.jpg" width=500 high=700>
 </p>
 
 
-### Transfer Model
-This work presents a deep learning model to improve engagement recognition from face images captured `in the wild' that overcomes the data sparsity challenge by pre-training on readily available basic facial expression data, before training on specialised engagement data. In the first of two steps, a facial expression recognition model is trained to provide a rich face representation using deep learning. In the second step, we use the model's weights to initialize our deep learning based model to recognize engagement; we term this the Transfer model. 
+### Engagement Model
+This work presents a deep learning model to improve engagement recognition from images that overcomes the data sparsity challenge by pre-training on readily available basic facial expression data, before training on specialised engagement data. In the first of two steps, a facial expression recognition model is trained to provide a rich face representation using deep learning. In the second step, we use the model's weights to initialize our deep learning model to recognize engagement; we term this the Engagament model.
 
 <p align="center">
 <img src="images/VGG_eng_model.jpg" width=500 high=700>
@@ -18,7 +18,7 @@ This work presents a deep learning model to improve engagement recognition from 
 if you use our code or model, please cite our paper:
 ```
 @article{nezami2018deep,
-  title={Engagement Recognition using Deep Learning and Facial Expression},
+  title={Automatic Recognition of Student Engagement using Deep Learning and Facial Expression},
   author={Nezami, Omid Mohamad and Hamey, Len and Richards, Deborah and Dras, Mark and Wan, Stephen and Paris, Cecile},
   journal={arXiv preprint arXiv:1808.02324},
   year={2018}
@@ -35,7 +35,7 @@ We train the model on our new engagement recognition (ER) dataset with 4627 enga
 ### Contents
 1. [CNN Model Source Code](/code/CNN_model.py)
 2. [VGG Model Source Code](/code/VGG_model.py)
-3. [Transfer Model Source Code](/code/VGG_model.py)
+3. [Engagement Model Source Code](/code/VGG_model.py)
 
 ### Train
 1. Dowload pretrained model:
@@ -52,7 +52,7 @@ We train the model on our new engagement recognition (ER) dataset with 4627 enga
 ### Results
 |                   | Accuracy     | F1 | AUC    |
 |-------------------|:-------------------:|:------------------------:|:---------------------:|
-|Transfer | 72.38%  | 73.90% | 73.74%  |
+|Engagement Model | 72.38%  | 73.90% | 73.74%  |
 
 The [CNN Model](/code/CNN_model.py) is inspired from [Emotion recognition with CNN](
 https://github.com/isseu/emotion-recognition-neural-networks).
