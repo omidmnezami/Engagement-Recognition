@@ -6,10 +6,6 @@ TensorFlow implementation of [Automatic Recognition of Student Engagement using 
 ### Engagement Model
 This work presents a deep learning model to improve engagement recognition from images that overcomes the data sparsity challenge by pre-training on readily available basic facial expression data, before training on specialised engagement data. In the first of two steps, a facial expression recognition model is trained to provide a rich face representation using deep learning. In the second step, we use the model's weights to initialize our deep learning model to recognize engagement; we term this the Engagament model.
 
-<p align="center">
-<img src="images/VGG_eng_model.jpg" width=500 high=700>
-</p>
-
 ### Reference
 if you use our code or model, please cite our paper:
 ```
