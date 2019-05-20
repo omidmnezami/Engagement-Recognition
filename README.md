@@ -21,7 +21,7 @@ if you use our code or model, please cite our paper:
 }
 ```
 ### Data
-We train the model on our new engagement recognition (ER) dataset with 4627 engaged and disengaged samples. We split the ER dataset into training (3224), validation (715), and testing (688) sets, which are subject-independent (the samples in these three sets are from different subjects). We will release our data to facilitate research on engagement recognition from visual data.
+We train the model on our new engagement recognition (ER) dataset with 4627 engaged and disengaged samples. We split the ER dataset into training (3224), validation (715), and testing (688) sets, which are subject-independent (the samples in these three sets are from different subjects).
 
 ### Requiremens
 1. Python 2.7.12
