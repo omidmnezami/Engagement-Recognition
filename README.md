@@ -15,7 +15,7 @@ if you use our code or model, please cite our paper:
 ```
 @article{nezami2018deep,
   title={Automatic Recognition of Student Engagement using Deep Learning and Facial Expression},
-  author={Nezami, Omid Mohamad and Hamey, Len and Richards, Deborah and Dras, Mark and Wan, Stephen and Paris, Cecile},
+  author={Mohamad Nezami, Omid and Dras, Mark and Hamey, Len and Richards, Deborah and Wan, Stephen and Paris, Cecile},
   journal={arXiv preprint arXiv:1808.02324},
   year={2018}
 }
