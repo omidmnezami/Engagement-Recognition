@@ -28,7 +28,7 @@ We train the model on our new engagement recognition (ER) dataset with 4627 enga
 2. Numpy 1.15.2
 3. Tensorflow 1.8.0
 
-### Contents
+### Content
 1. [CNN Model Source Code](/code/CNN_model.py)
 2. [VGG Model Source Code](/code/VGG_model.py)
 3. [Engagement Model Source Code](/code/VGG_model.py)
