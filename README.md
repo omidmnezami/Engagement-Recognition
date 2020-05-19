@@ -13,11 +13,13 @@ This work presents a deep learning model to improve engagement recognition from 
 ### Reference
 if you use our code or model, please cite our paper:
 ```
-@article{nezami2018deep,
-  title={Automatic Recognition of Student Engagement using Deep Learning and Facial Expression},
-  author={Mohamad Nezami, Omid and Dras, Mark and Hamey, Len and Richards, Deborah and Wan, Stephen and Paris, Cecile},
-  journal={arXiv preprint arXiv:1808.02324},
-  year={2018}
+@inproceedings{nezami2019automatic,
+  title={Automatic recognition of student engagement using deep learning and facial expression},
+  author={Nezami, Omid Mohamad and Dras, Mark and Hamey, Len and Richards, Deborah and Wan, Stephen and Paris, C{\'e}cile},
+  booktitle={Joint European Conference on Machine Learning and Knowledge Discovery in Databases},
+  pages={273--289},
+  year={2019},
+  organization={Springer}
 }
 ```
 ### Data
