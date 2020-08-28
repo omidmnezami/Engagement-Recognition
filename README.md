@@ -36,14 +36,14 @@ We train the model on our new engagement recognition (ER) dataset with 4627 enga
 3. [Engagement Model Source Code](/code/VGG_model.py)
 
 ### Train
-1. Add your pretrained models on the FER-2013 dataset
+1. Add [pretrained models](https://cloudstor.aarnet.edu.au/plus/s/LqqdgwJ69NEdnDS) on the FER-2013 dataset
 2. Run the model's script:
 ````
     python VGG_model.py train
 ````
 
 ### Test
-1. Add your trained models on the ER dataset
+1. Add [trained models](https://cloudstor.aarnet.edu.au/plus/s/i3oPqcjXhG7Ymva) on the ER dataset
 2. Run the model's script:
 ````
     python VGG_model.py test
