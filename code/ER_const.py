@@ -11,6 +11,7 @@
 SIZE_FACE = 48
 EMOTIONS = ['eng','dis']
 SAVE_DIRECTORY = '../model/'
+SAVE_DIRECTORY_DATA = '../preprocess_data/'
 SAVE_MODEL_FILENAME = 'TF_start'
 SAVE_MODEL_FILENAME_TF = 'TF_final'
 SAVE_DATASET_IMAGES_FILENAME = 'X_train.npy'

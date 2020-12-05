@@ -71,7 +71,7 @@ cd code/
 # Download and unzip the mmod_human_face_detector.dat file from "http://dlib.net/files/mmod_human_face_detector.dat.bz2"
 python preprocess.py
 ```
-This will generate the preprocess images as numpy files in the the preprocess_data directory. (Here, for testing purposes, we only place 5 images from FER dataset in the data directory and create a sample numpy file for training (X_train.npy) in the preprocess_data directory with all zero labels (Y_train.npy). You need to apply this for all your images with correct labels. You also need to create testing and validation numpy files.)
+This will generate the preprocess images as numpy files in the the preprocess_data directory. (Here, for testing purposes, we only place 5 images from FER dataset in the data directory and create a sample numpy file for training (X_train.npy) in the preprocess_data directory with all zero labels (Y_train.npy). You need to apply this step for all your images with correct labels. You also need to create testing and validation numpy files.)
 
 ### Train from Scratch
 1. The CNN Model:

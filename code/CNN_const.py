@@ -11,6 +11,7 @@
 SIZE_FACE = 48
 EMOTIONS = ['eng','dis']
 SAVE_DIRECTORY = '../model/'
+SAVE_DIRECTORY_DATA = '../preprocess_data/'
 SAVE_MODEL_FILENAME = 'CNN_model'
 SAVE_DATASET_IMAGES_FILENAME = 'X_train.npy'
 SAVE_DATASET_LABELS_FILENAME = 'Y_train.npy'

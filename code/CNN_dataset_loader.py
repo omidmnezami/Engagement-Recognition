@@ -9,8 +9,8 @@ class DatasetLoader(object):
 
   def load_from_save(self):
 
-    self._images = np.load(join(SAVE_DIRECTORY, SAVE_DATASET_IMAGES_FILENAME))
-    self._labels = np.load(join(SAVE_DIRECTORY, SAVE_DATASET_LABELS_FILENAME))
+    self._images = np.load(join(SAVE_DIRECTORY_DATA, SAVE_DATASET_IMAGES_FILENAME))
+    self._labels = np.load(join(SAVE_DIRECTORY_DATA, SAVE_DATASET_LABELS_FILENAME))
     sz=self._images.shape[0]
     train_lbl = np.zeros((sz, len(EMOTIONS)))
     for i in range(sz):
@@ -21,8 +21,8 @@ class DatasetLoader(object):
 
     self._labels = train_lbl
 
-    self._images_valid = np.load(join(SAVE_DIRECTORY, SAVE_DATASET_IMAGES_VALID_FILENAME))
-    self._labels_valid = np.load(join(SAVE_DIRECTORY, SAVE_DATASET_LABELS_VALID_FILENAME))
+    self._images_valid = np.load(join(SAVE_DIRECTORY_DATA, SAVE_DATASET_IMAGES_VALID_FILENAME))
+    self._labels_valid = np.load(join(SAVE_DIRECTORY_DATA, SAVE_DATASET_LABELS_VALID_FILENAME))
     sz = self._images_valid.shape[0]
     val_lbl = np.zeros((sz, len(EMOTIONS)))
     for i in range(sz):
@@ -33,8 +33,8 @@ class DatasetLoader(object):
 
     self._labels_valid = val_lbl
 
-    self._images_test = np.load(join(SAVE_DIRECTORY, SAVE_DATASET_IMAGES_TEST_FILENAME))
-    self._labels_test = np.load(join(SAVE_DIRECTORY, SAVE_DATASET_LABELS_TEST_FILENAME))
+    self._images_test = np.load(join(SAVE_DIRECTORY_DATA, SAVE_DATASET_IMAGES_TEST_FILENAME))
+    self._labels_test = np.load(join(SAVE_DIRECTORY_DATA, SAVE_DATASET_LABELS_TEST_FILENAME))
     sz = self._images_test.shape[0]
     test_lbl = np.zeros((sz, len(EMOTIONS)))
     for i in range(sz):
