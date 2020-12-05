@@ -1,15 +1,14 @@
 from __future__ import division, absolute_import
 import numpy as np
-from CNN_dataset_loader import DatasetLoader
+from VGG_dataset_loader import DatasetLoader
 import tflearn
 from tflearn.layers.core import input_data, dropout, fully_connected
 from tflearn.layers.conv import conv_2d, max_pool_2d
 from tflearn.layers.normalization import local_response_normalization
 from tflearn.layers.estimator import regression
-from CNN_const import *
+from VGG_const import *
 from os.path import isfile, join
 import sys
-
 
 class EmotionRecognition:
 
@@ -17,11 +16,13 @@ class EmotionRecognition:
     self.dataset = DatasetLoader()
     # self.lr =lr
   def build_network(self):
+    # Smaller 'AlexNet'
+    # https://github.com/tflearn/tflearn/blob/master/examples/images/alexnet.py
     img_aug = tflearn.ImageAugmentation()
     img_aug.add_random_flip_leftright()
     # img_aug.add_random_flip_updown()
     img_aug.add_random_crop([SIZE_FACE, SIZE_FACE], padding=4)
-    img_aug.add_random_rotation(max_angle=8.0)
+    img_aug.add_random_rotation(max_angle=16.0)
     
     img_prep = tflearn.ImagePreprocessing()
     img_prep.add_featurewise_zero_center(per_channel=True)
@@ -30,35 +31,50 @@ class EmotionRecognition:
     print('[+] Building CNN')
     self.network = input_data(shape = [None, SIZE_FACE, SIZE_FACE, 1], data_preprocessing=img_prep, data_augmentation=img_aug)
 
-    self.network = conv_2d(self.network, 64, 5, activation='relu')
+    self.network = conv_2d(self.network, 64, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = conv_2d(self.network, 64, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
     self.network = local_response_normalization(self.network)
-    self.network = max_pool_2d(self.network, 3, strides=2)
+    self.network = max_pool_2d(self.network, 2, strides=2)
     self.network = dropout(self.network, 0.8)
 
-    self.network = conv_2d(self.network, 128, 3, activation='relu')
-    self.network = max_pool_2d(self.network, 3, strides=2)
+    self.network = conv_2d(self.network, 128, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = conv_2d(self.network, 128, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = max_pool_2d(self.network, 2, strides=2)
     self.network = dropout(self.network, 0.8)
 
-    self.network = fully_connected(self.network, 1024, activation='relu', weight_decay=0.0001)
+    self.network = conv_2d(self.network, 256, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = conv_2d(self.network, 256, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = max_pool_2d(self.network, 2, strides=2)
+    self.network = dropout(self.network, 0.8)
+
+    self.network = conv_2d(self.network, 512, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = conv_2d(self.network, 512, 3, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = max_pool_2d(self.network, 2, strides=2)
+    self.network = dropout(self.network, 0.8)
+
+    self.network = fully_connected(self.network, 4096, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = dropout(self.network, 0.7)
+    
+    self.network = fully_connected(self.network, 4096, activation='relu', regularizer='L2')#, weight_decay=0.0001)
+    self.network = dropout(self.network, 0.7)
+    
+    self.network = fully_connected(self.network, 1024, activation='relu', regularizer='L2')#, weight_decay=0.0001)
     self.network = dropout(self.network, 0.7)
 
-    self.network = fully_connected(self.network, 1024, activation='relu', weight_decay=0.0001)
-    self.network = dropout(self.network, 0.7)
-
-    self.network = fully_connected(self.network, len(EMOTIONS), activation='softmax')
+    self.network = fully_connected(self.network, len(EMOTIONS), activation='softmax')#, restore=False)
 
     mom = tflearn.optimizers.Momentum(learning_rate=0.02, lr_decay=0.8, decay_step=500)
 
-    self.network = regression(self.network, optimizer=mom, loss='categorical_crossentropy')
+    self.network = regression(self.network, optimizer=mom, loss='categorical_crossentropy')#, restore=False)
 
     self.model = tflearn.DNN(
       self.network,
-      tensorboard_dir = './tmp/',
+      tensorboard_dir = '../tmp/',
       checkpoint_path = None,
       max_checkpoints = None,
       tensorboard_verbose = 0
     )
-    # self.model.load(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME))
+    # self.model.load( join( SAVE_DIRECTORY, SAVE_MODEL_FILENAME), weights_only=True )
 
   def load_saved_dataset(self):
     self.dataset.load_from_save()
@@ -67,6 +83,7 @@ class EmotionRecognition:
   def start_training(self):
     self.load_saved_dataset()
     self.build_network()
+
     if self.dataset is None:
       self.load_saved_dataset()
     # Training
@@ -77,7 +94,7 @@ class EmotionRecognition:
       self.dataset.images, self.dataset.labels,
       validation_set = (self.dataset.images_valid, self.dataset._labels_valid),
       n_epoch = epoch_num,
-      batch_size = 28,
+      batch_size = 32,
       shuffle = True,
       show_metric = True,
       snapshot_step = None,
@@ -98,10 +115,11 @@ class EmotionRecognition:
 
   def load_model(self):
     if isfile(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME_TF+'.index')):
-      self.model.load(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME_TF))
-      print('[+] Model ;loaded from ' + SAVE_MODEL_FILENAME_TF)
+      self.model.load(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME))
+      print('[+] Model ;loaded from ' + SAVE_MODEL_FILENAME)
       print '********* The test set accuracy is: '
-      perfval  = self.model.evaluate(self.dataset.images_valid, self.dataset._labels_valid)
+
+      perfval = self.model.evaluate(self.dataset.images_valid, self.dataset._labels_valid)
       perftest = self.model.evaluate(self.dataset.images_test, self.dataset.labels_test)
 
       print perfval, perftest
@@ -109,10 +127,11 @@ class EmotionRecognition:
       predictval = self.model.predict(self.dataset.images_valid)
       predicttest = self.model.predict(self.dataset.images_test)
 
-      np.save('CNNval_f.npy',predictval)
-      np.save( 'CNNtest_f.npy', predicttest)
+      np.save('VGGval_f.npy', predictval)
+      np.save('VGGtest_f.npy', predicttest)
 
       return perftest
+
     else:
       print '[-] The model is not found'
       print '[-] The model is not found'
