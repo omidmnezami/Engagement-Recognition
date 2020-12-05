@@ -56,9 +56,9 @@ First, we pre-train our model on the facial expression recognition (FER) dataset
 Second, we train the model on our new engagement recognition (ER) dataset with 4627 engaged and disengaged samples. We split the ER dataset into training (3224), validation (715), and testing (688) sets, which are subject-independent (the samples in these three sets are from different subjects).
 
 ### Content
-1. [CNN Model Source Code](/code/CNN_model.py) for training a basic CNN architecture on the ER dataset
-2. [VGG Model Source Code](/code/VGG_model.py) for training a VGG architecture on the ER dataset
-3. [Engagement Model Source Code](/code/ER_model.py) for fine-tuning a pre-trained VGG architecture on the ER dataset
+1. [CNN Model Source Code](/code/CNN_model.py) for training a basic CNN architecture on the ER dataset or your engagement dataset
+2. [VGG Model Source Code](/code/VGG_model.py) for training a VGG architecture on the ER dataset or your engagement dataset
+3. [Engagement Model Source Code](/code/ER_model.py) for fine-tuning a pre-trained VGG architecture on the ER dataset or your engagement dataset
 
 🤗 Please see below for more detail about data preparation, engagement model training and testing
 ### Pre-Processing and Data Preparation 
@@ -89,7 +89,7 @@ This will generate the preprocess images as numpy files in the the preprocess_da
     python VGG_model.py train
     ````
 ### Train Engagement Model
-1. Download the [pretrained model](https://cloudstor.aarnet.edu.au/plus/s/LqqdgwJ69NEdnDS) on the ER dataset
+1. Download and untar the [pretrained model](https://cloudstor.aarnet.edu.au/plus/s/LqqdgwJ69NEdnDS) on the ER dataset
 2. Create a directory called 'model'
 3. Place the downloaded model in the directory
 4. Run the model's script:
@@ -100,7 +100,7 @@ This will generate the preprocess images as numpy files in the the preprocess_da
     ````
 
 ### Test Engagement Model
-1. Download the [trained model](https://cloudstor.aarnet.edu.au/plus/s/i3oPqcjXhG7Ymva) on the ER dataset
+1. Download and untar the [trained model](https://cloudstor.aarnet.edu.au/plus/s/i3oPqcjXhG7Ymva) on the ER dataset
 2. Create a directory called 'model'
 3. Place the downloaded model in the the directory
 4. Run the model's script:
