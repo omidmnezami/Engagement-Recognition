@@ -69,7 +69,7 @@ This will generate the preprocess images as numpy files in the the preprocess_da
 ### Train from Scratch
 1. The CNN Model:
     ````
-    # Specify the name of the saved model in 'CNN_const.py'
+    # Specify the name of the saved model in 'CNN_const.py' e.g., SAVE_MODEL_FILENAME = CNN_model
     cd code/
     python CNN_model.py train
     ````
@@ -77,24 +77,26 @@ This will generate the preprocess images as numpy files in the the preprocess_da
    
 2. The VGG Model:
     ````
-    # Specify the name of the saved model in 'VGG_const.py'
+    # Specify the name of the saved model in 'VGG_const.py' e.g., SAVE_MODEL_FILENAME = VGG_model
     cd code
     python VGG_model.py train
     ````
 ### Train Engagement Model
 1. Download the [pretrained model](https://cloudstor.aarnet.edu.au/plus/s/LqqdgwJ69NEdnDS) on the ER dataset
-2. Place the model in the model directory
-2. Run the model's script:
+2. Create a directory called 'model'
+3. Place the downloaded model in the directory
+4. Run the model's script:
     ````
-   # Specify the name of the saved model in 'ER_const.py'
+   # Specify the name of the saved model in 'ER_const.py' e.g., SAVE_MODEL_FILENAME = TF_final
     cd code/
     python ER_model.py train
     ````
 
 ### Test Engagement Model
 1. Download the [trained model](https://cloudstor.aarnet.edu.au/plus/s/i3oPqcjXhG7Ymva) on the ER dataset
-2. Place the model in the the model directory
-3. Run the model's script:
+2. Create a directory called 'model'
+3. Place the downloaded model in the the directory
+4. Run the model's script:
     ````
     cd code/
     python ER_model.py test

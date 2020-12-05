@@ -74,7 +74,6 @@ class EmotionRecognition:
       max_checkpoints = None,
       tensorboard_verbose = 0
     )
-    # self.model.load( join( SAVE_DIRECTORY, SAVE_MODEL_FILENAME), weights_only=True )
 
   def load_saved_dataset(self):
     self.dataset.load_from_save()
@@ -110,11 +109,11 @@ class EmotionRecognition:
     return self.model.predict(image)
 
   def save_model(self):
-    self.model.save(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME_TF))
-    print('[+] Model trained and saved at ' + SAVE_MODEL_FILENAME_TF)
+    self.model.save(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME))
+    print('[+] Model trained and saved at ' + SAVE_MODEL_FILENAME)
 
   def load_model(self):
-    if isfile(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME_TF+'.index')):
+    if isfile(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME+'.index')):
       self.model.load(join(SAVE_DIRECTORY, SAVE_MODEL_FILENAME))
       print('[+] Model ;loaded from ' + SAVE_MODEL_FILENAME)
       print '********* The test set accuracy is: '
